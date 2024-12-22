@@ -68,6 +68,50 @@ const Navbar = () => {
             Create Account
           </button>
         )}
+        <img
+          onClick={() => setShowMenu(true)}
+          className="w-6 md:hidden"
+          src={assets.menu_icon}
+          alt=""
+        />
+        {/* Mobile Menu */}
+        <div
+          className={`${
+            showMenu ? "fixed w-full" : "h-0 w-0"
+          } md:hidden bottom-0 right-0 top-0 overflow-hidden z-20 bg-white transition-all`}
+        >
+          <div className="flex items-center justify-between px-5 py-6">
+            <img className="w-36" src={assets.logo} alt="" />
+            <img
+              className="w-7 cursor-pointer"
+              onClick={() => setShowMenu(false)}
+              src={assets.cross_icon}
+              alt=""
+            />
+          </div>
+          <ul className="flex flex-col items-center gap-2 font-medium text-lg mt-5 px-5">
+            <NavLink onClick={() => setShowMenu(false)} to={"/"}>
+              <p className="text-lg inline-block px-4 py-2 cursor-pointer">
+                Home
+              </p>
+            </NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to={"/about"}>
+              <p className="text-lg inline-block px-4 py-2 cursor-pointer">
+                About
+              </p>
+            </NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to={"/doctors"}>
+              <p className="text-lg inline-block px-4 py-2 cursor-pointer">
+                Doctors
+              </p>
+            </NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to={"/contact"}>
+              <p className="text-lg inline-block px-4 py-2 cursor-pointer">
+                Contact
+              </p>
+            </NavLink>
+          </ul>
+        </div>
       </div>
     </div>
   );
